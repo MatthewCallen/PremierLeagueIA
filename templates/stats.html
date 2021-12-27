@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>English Premier League Statistics</h1>
+<body style="background-color:rgb(0,225,133)">
+    <style>
+        td{
+            padding: 10px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 100%;
+        }
+        th{
+            text-align: center;
+        }
+    </style>
+<table>
+    <tr>
+        <th>Team</th>
+        <th>Year</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>Points</th>
+        <th>Goals Scored</th>
+        <th>Goals Allowed</th>
+        <th>Goals per 90</th>
+        <th>Assists per 90</th>
+        <th>Clean Sheets</th>
+        <th>Table Finish</th>
+    </tr>
+    {% for team_stats in teams %}
+    <tr>
+        <td>
+            {{team_stats.team}}
+        </td>
+        <td>
+            {{team_stats.year}}
+        </td>
+        <td>
+            {{team_stats.wins}}
+        </td>
+        <td>
+            {{team_stats.draws}}
+        </td>
+        <td>
+            {{team_stats.losses}}
+        </td>
+        <td>
+            {{team_stats.points}}
+        </td>
+        <td>
+            {{team_stats.goals_scored}}
+        </td>
+        <td>
+            {{team_stats.goals_allowed}}
+        </td>
+        <td>
+            {{team_stats.goals_per90}}
+        </td>
+        <td>
+            {{team_stats.assists_per90}}
+        </td>
+        <td>
+            {{team_stats.clean_sheets}}
+        </td>
+        <td>
+            {{team_stats.table_finish}}
+        </td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+<p>
+    <a href ='/'>Click to access Premier League Home Page</a>
+</p>
+
+
+<p>Want to Filter? Filter by any stat below:</p>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Wins</a>
+        <a class="dropdown-item" href="#">Draws</a>
+        <a class="dropdown-item" href="#">Losses</a>
+        <a class="dropdown-item" href="#">Points</a>
+        <a class="dropdown-item" href="#">Goals Scored</a>
+        <a class="dropdown-item" href="#">Goals Allowed</a>
+        <a class="dropdown-item" href="#">Goals per 90</a>
+        <a class="dropdown-item" href="#">Assists per 90</a>
+        <a class="dropdown-item" href="#">Clean Sheets</a>
+        <a class="dropdown-item" href="#">Table Finish</a>
+    </div>
+</div>
+<p> </p>
+<button>Go</button>
+
+</body>
+{% endblock content %}
