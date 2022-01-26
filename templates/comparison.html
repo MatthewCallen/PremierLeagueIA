@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div style = 'text-align: center;'>
+    <p>
+        <strong style="text-align:center; font-size:30px; color:white">English Premier League Comparison Page</strong>
+    </p>
+
+<body style="background-color:rgb(61, 21, 91)">
+<style>
+    .form-select form-select-lg mb-3{
+        padding-left: 35%;
+    }
+
+    .col{
+        padding-top: 10%;
+    }
+    
+</style>
+<form method="post" action='/comparison/'>
+{% csrf_token %}
+
+<div class="container">
+    <div class="row">
+      <div>
+      <div class="col" style = "text-align: center;">
+            <select name="team_one_selection" class="form-select form-select-lg mb-3" aria-label="Default select example">
+                <option selected value="-1">Select Team One</option>
+                {% for team_stats in teams %}
+                <option value="{{team_stats.id}}">{{team_stats.team}}, {{team_stats.year}}</option>
+                {% endfor %}
+            </select>
+              
+      </div>
+      <div class="col" style=" text-align: center">
+        <select name="team_two_selection" class="form-select form-select-lg" aria-label="Default select example">
+            <option selected value="-1">Select Team Two</option>
+            {% for team_stats in teams %}
+            <option value="{{team_stats.id}}">{{team_stats.team}}, {{team_stats.year}}</option>
+            {% endfor %}
+          </select>
+      </div>
+    </div>
+</div>
+</div>
+<h1>{{compare_error}}</h1> 
+<div style = 'padding-top:10%'></div>
+
+<button type="submit" class="btn btn-primary btn-lg">Compare</button>
+
+<!-- </div> -->
+<div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content">
+      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+      <a href="#about">About</a>
+      <a href="#base">Base</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="#custom">Custom</a>
+      <a href="#support">Support</a>
+      <a href="#tools">Tools</a>
+    </div>
+  </div>
+</form>
+</body>
+{% endblock content %}

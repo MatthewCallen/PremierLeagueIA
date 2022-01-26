@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    p{
+        font-size: 20px
+    }
+
+    row{
+        color: white;
+    }
+
+
+</style>
+<body style="background-color:rgb(61, 21, 91)"> 
+    <div class="row" style="clear: both;">
+
+        <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_one.color}}; color:{% if team_one.color == '#FFFFFF' %} black {% else %} white {% endif %}">
+            <h1>{{team_one.team}}</h1>
+            <h2>{{team_one.year}}</h2>
+            <p>Wins: {{team_one.wins}}</p>
+            <p>Draws: {{team_one.draws}}</p>
+            <p>Losses: {{team_one.losses}}</p>
+            <p>Points: {{team_one.points}}</p>
+            <p>Goals Scored: {{team_one.goals_scored}}</p>
+            <p>Goals Allowed: {{team_one.goals_allowed}}</p>
+            <p>Goals per 90: {{team_one.goals_per90}}</p>
+            <p>Assists per 90: {{team_one.assists_per90}}</p>
+            <p>Clean Sheets: {{team_one.clean_sheets}}</p>
+            <p>Table Finish: {{team_one.table_finish}}</p>
+        </div>
+        <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_two.color}}; color:{% if team_two.color == '#FFFFFF' %} black {% else %} white {% endif %}">
+            <h1>{{team_two.team}}</h1>
+            <h2>{{team_two.year}}</h2>
+            <p>Wins: {{team_two.wins}}</p>
+            <p>Draws: {{team_two.draws}}</p>
+            <p>Losses: {{team_two.losses}}</p>
+            <p>Points: {{team_two.points}}</p>
+            <p>Goals Scored: {{team_two.goals_scored}}</p>
+            <p>Goals Allowed: {{team_two.goals_allowed}}</p>
+            <p>Goals per 90: {{team_two.goals_per90}}</p>
+            <p>Assists per 90: {{team_two.assists_per90}}</p>
+            <p>Clean Sheets: {{team_two.clean_sheets}}</p>
+            <p>Table Finish: {{team_two.table_finish}}</p>
+        </div>
+    </div>
+</body>
+{% endblock content %}
