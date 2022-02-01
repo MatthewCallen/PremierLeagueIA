@@ -12,11 +12,11 @@
 
 
 </style>
-<body style="background-color:rgb(61, 21, 91)"> 
+<body style="background-color:rgb(253, 155, 75)"> 
     <div class="row" style="clear: both;">
 
         <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_one.color}}; color:{% if team_one.color == '#FFFFFF' %} black {% else %} white {% endif %}">
-            <h1>{{team_one.team}}</h1>
+            <img src="{{team_one.logo.url}}" alt="{{team_one.team}}" style="width:30%; height:auto">
             <h2>{{team_one.year}}</h2>
             <p>Wins: {{team_one.wins}}</p>
             <p>Draws: {{team_one.draws}}</p>
@@ -30,7 +30,7 @@
             <p>Table Finish: {{team_one.table_finish}}</p>
         </div>
         <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_two.color}}; color:{% if team_two.color == '#FFFFFF' %} black {% else %} white {% endif %}">
-            <h1>{{team_two.team}}</h1>
+            <img src="{{team_two.logo.url}}" alt="{{team_two.team}}" style="width:30%; height:auto">
             <h2>{{team_two.year}}</h2>
             <p>Wins: {{team_two.wins}}</p>
             <p>Draws: {{team_two.draws}}</p>

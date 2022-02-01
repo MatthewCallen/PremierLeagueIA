@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+    
 <div style = 'text-align: center;'>
     <p>
         <strong style="text-align:center; font-size:30px; color:white">English Premier League Comparison Page</strong>
     </p>
 
-<body style="background-color:rgb(61, 21, 91)">
+<body style="background-color:rgb(253, 155, 75)">
+
 <style>
     .form-select form-select-lg mb-3{
         padding-left: 35%;
@@ -14,8 +21,21 @@
     .col{
         padding-top: 10%;
     }
-    
+
+    .select2-container .select2-selection--single{
+    height:34px !important;
+    }
+    .select2-container--default .select2-selection--single{
+         border: 1px solid #ccc !important; 
+     border-radius: 0px !important; 
+    }
 </style>
+
+
+<script>
+    $('.select2').select2();
+</script>
+
 <form method="post" action='/comparison/'>
 {% csrf_token %}
 
@@ -42,25 +62,15 @@
     </div>
 </div>
 </div>
+
+
+
 <h1>{{compare_error}}</h1> 
 <div style = 'padding-top:10%'></div>
 
 <button type="submit" class="btn btn-primary btn-lg">Compare</button>
 
-<!-- </div> -->
-<div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-      <a href="#about">About</a>
-      <a href="#base">Base</a>
-      <a href="#blog">Blog</a>
-      <a href="#contact">Contact</a>
-      <a href="#custom">Custom</a>
-      <a href="#support">Support</a>
-      <a href="#tools">Tools</a>
-    </div>
-  </div>
+
 </form>
 </body>
 {% endblock content %}
