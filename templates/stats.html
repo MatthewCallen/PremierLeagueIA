@@ -2,115 +2,107 @@
 
 {% block content %}
 <h1>English Premier League Statistics</h1>
+
 <body style="background-color:rgb(230, 241, 168)">
     <style>
-        td{
+        td {
             padding: 10px;
             border: 1px solid black;
             border-collapse: collapse;
         }
-        table{
+
+        table {
             width: 100%;
         }
-        th{
+
+        th {
             text-align: center;
         }
 
-        .team_highlight{
-            background-color:rgb(238, 175, 93);
+        .team_highlight {
+            background-color: rgb(238, 175, 93);
             color: white;
             opacity: 0.75;
 
         }
     </style>
-<p>Want to Filter? Filter by any stat below:</p>
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter Here
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="?dropdown=wins">Wins</a>
-        <a class="dropdown-item" href="?dropdown=draws">Draws</a>
-        <a class="dropdown-item" href="?dropdown=losses">Losses</a>
-        <a class="dropdown-item" href="?dropdown=points">Points</a>
-        <a class="dropdown-item" href="?dropdown=goals_scored">Goals Scored</a>
-        <a class="dropdown-item" href="?dropdown=goals_allowed">Goals Allowed</a>
-        <a class="dropdown-item" href="?dropdown=goals_per90">Goals per 90</a>
-        <a class="dropdown-item" href="?dropdown=assists_per90">Assists per 90</a>
-        <a class="dropdown-item" href="?dropdown=clean_sheets">Clean Sheets</a>
-        <a class="dropdown-item" href="?dropdown=table_finish">Table Finish</a>
-    </ul>
-</div>
-    
-<table>
-    <tr>
-        <th>Team</th>
-        <th>Year</th>
-        <th>Wins</th>
-        <th>Draws</th>
-        <th>Losses</th>
-        <th>Points</th>
-        <th>Goals Scored</th>
-        <th>Goals Allowed</th>
-        <th>Goals per 90</th>
-        <th>Assists per 90</th>
-        <th>Clean Sheets</th>
-        <th>Table Finish</th>
-    </tr>
-    {% for team_stats in teams %}
-    <tr>
+    <p>Want to Filter? Filter by any stat below:</p>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Filter Here
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="?dropdown=wins">Wins</a>
+            <a class="dropdown-item" href="?dropdown=draws">Draws</a>
+            <a class="dropdown-item" href="?dropdown=losses">Losses</a>
+            <a class="dropdown-item" href="?dropdown=points">Points</a>
+            <a class="dropdown-item" href="?dropdown=goals_scored">Goals Scored</a>
+            <a class="dropdown-item" href="?dropdown=goals_allowed">Goals Allowed</a>
+            <a class="dropdown-item" href="?dropdown=goals_per90">Goals per 90</a>
+            <a class="dropdown-item" href="?dropdown=assists_per90">Assists per 90</a>
+            <a class="dropdown-item" href="?dropdown=clean_sheets">Clean Sheets</a>
+            <a class="dropdown-item" href="?dropdown=table_finish">Table Finish</a>
+        </ul>
+    </div>
 
-        <td>
-            {{team_stats.team}}
-        </td>
-        <td>
-            {{team_stats.year}}
-        </td>
-        <td class="{% if query == 'wins' %} team_highlight{% endif %}">
-            {{team_stats.wins}}
-        </td>
-        <td class="{% if query == 'draws' %} team_highlight{% endif %}">
-            {{team_stats.draws}}
-        </td>
-        <td class="{% if query == 'losses' %} team_highlight{% endif %}">
-            {{team_stats.losses}}
-        </td>
-        <td class="{% if query == 'points' %} team_highlight{% endif %}">
-            {{team_stats.points}}
-        </td>
-        <td class="{% if query == 'goals_scored' %} team_highlight{% endif %}">
-            {{team_stats.goals_scored}}
-        </td>
-        <td class="{% if query == 'goals_allowed' %} team_highlight{% endif %}">
-            {{team_stats.goals_allowed}}
-        </td>
-        <td class="{% if query == 'goals_per90' %} team_highlight{% endif %}">
-            {{team_stats.goals_per90}}
-        </td>
-        <td class="{% if query == 'assists_per90' %} team_highlight{% endif %}">
-            {{team_stats.assists_per90}}
-        </td>
-        <td class="{% if query == 'clean_sheets' %} team_highlight{% endif %}">
-            {{team_stats.clean_sheets}}
-        </td>
-        <td class="{% if query == 'table_finish' %} team_highlight{% endif %}">
-            {{team_stats.table_finish}}
-        </td>
-        
-    </tr>
-    {% endfor %}
-</table>
+    <table>
+        <tr>
+            <th>Team</th>
+            <th>Year</th>
+            <th>Wins</th>
+            <th>Draws</th>
+            <th>Losses</th>
+            <th>Points</th>
+            <th>Goals Scored</th>
+            <th>Goals Allowed</th>
+            <th>Goals per 90</th>
+            <th>Assists per 90</th>
+            <th>Clean Sheets</th>
+            <th>Table Finish</th>
+        </tr>
+        {% for team_stats in teams %}
+        <tr>
+
+            <td>
+                {{team_stats.team}}
+            </td>
+            <td>
+                {{team_stats.year}}
+            </td>
+            <td class="{% if query == 'wins' %} team_highlight{% endif %}">
+                {{team_stats.wins}}
+            </td>
+            <td class="{% if query == 'draws' %} team_highlight{% endif %}">
+                {{team_stats.draws}}
+            </td>
+            <td class="{% if query == 'losses' %} team_highlight{% endif %}">
+                {{team_stats.losses}}
+            </td>
+            <td class="{% if query == 'points' %} team_highlight{% endif %}">
+                {{team_stats.points}}
+            </td>
+            <td class="{% if query == 'goals_scored' %} team_highlight{% endif %}">
+                {{team_stats.goals_scored}}
+            </td>
+            <td class="{% if query == 'goals_allowed' %} team_highlight{% endif %}">
+                {{team_stats.goals_allowed}}
+            </td>
+            <td class="{% if query == 'goals_per90' %} team_highlight{% endif %}">
+                {{team_stats.goals_per90}}
+            </td>
+            <td class="{% if query == 'assists_per90' %} team_highlight{% endif %}">
+                {{team_stats.assists_per90}}
+            </td>
+            <td class="{% if query == 'clean_sheets' %} team_highlight{% endif %}">
+                {{team_stats.clean_sheets}}
+            </td>
+            <td class="{% if query == 'table_finish' %} team_highlight{% endif %}">
+                {{team_stats.table_finish}}
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 {% endblock content %}
-<!-- team = models.TextField()
-    year = models.TextField()
-    wins = models.IntegerField()
-    draws = models.IntegerField()
-    losses = models.IntegerField()
-    points = models.IntegerField()
-    goals_scored = models.IntegerField()
-    goals_allowed = models.IntegerField()
-    goals_per90 = models.FloatField()
-    assists_per90 = models.FloatField()
-    clean_sheets = models.IntegerField()
-    table_finish = models.IntegerField() -->

@@ -23,7 +23,7 @@ def stat_view(request): #View for stat page works
 
 
 
-    context = { #returns these attributes
+    context = { #dictionary created to return these attributes
         "teams": all_teams, 
         "query": query,
     }
@@ -71,8 +71,8 @@ def comparison_view(request):
             elif request.POST.get("team_one_selection") == request.POST.get("team_two_selection"):  #Error to check whether the two selected teams are different
                 compare_error = "Please select two different teams"
             else:
-                team_one = Stats.objects.get(id=request.POST.get("team_one_selection"))#Gets ID from dropdown menu of team 1
-                team_two = Stats.objects.get(id=request.POST.get("team_two_selection"))#Gets ID from dropdown menu of team 2
+                team_one = Stats.objects.get(id=request.POST.get("team_one_selection"))#Gets object using ID from dropdown menu of team 1
+                team_two = Stats.objects.get(id=request.POST.get("team_two_selection"))#Gets object using ID from dropdown menu of team 2
                 context = {
                     "team_one": team_one,
                     "team_two": team_two,
@@ -86,27 +86,8 @@ def comparison_view(request):
     context = {
         "teams": all_teams, 
         "compare_error": compare_error,
-        #pass in teams
     }
     return render(request, "comparison.html", context)
 
 def description_view(request):
     return render(request, "description.html") #returns what is written in the html file
-# FRUIT_CHOICES= [
-#     ('orange', 'Oranges'),
-#     ('cantaloupe', 'Cantaloupes'),
-#     ('mango', 'Mangoes'),
-#     ('honeydew', 'Honeydews'),
-#     ]
-
-# class UserForm(forms.Form):
-#     first_name= forms.CharField(max_length=100)
-#     last_name= forms.CharField(max_length=100)
-#     email= forms.EmailField()
-#     age= forms.IntegerField()
-#     favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.Select(choices=FRUIT_CHOICES))
-
-
-        # <!--
-        #     <td class={% if dropdown ="col" ? highlighted : regular%}
-        # -->
