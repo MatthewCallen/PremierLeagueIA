@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-
+<!-- Code to display all stats in database in a table -->
 {% block content %}
 <h1>English Premier League Statistics</h1>
 
 <body style="background-color:rgb(230, 241, 168)">
     <style>
+        /* basic table edits */
         td {
             padding: 10px;
             border: 1px solid black;
@@ -19,6 +20,7 @@
             text-align: center;
         }
 
+        /* code to highlight user selected stat if they choose to filter */
         .team_highlight {
             background-color: rgb(238, 175, 93);
             color: white;
@@ -26,8 +28,8 @@
 
         }
     </style>
-    <p>Want to Filter? Filter by any stat below:</p>
-    <div class="dropdown">
+    <p>Want to Filter? Filter by any stat below:</p> <!--Tells user they have an option to filter-->
+    <div class="dropdown"> <!--dropdown menu to filter-->
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
             data-bs-toggle="dropdown" aria-expanded="false">
             Filter Here
@@ -46,6 +48,7 @@
         </ul>
     </div>
 
+    <!--Construction of table with headers-->
     <table>
         <tr>
             <th>Team</th>
@@ -61,6 +64,7 @@
             <th>Clean Sheets</th>
             <th>Table Finish</th>
         </tr>
+        <!--Input all stats from database into the table-->
         {% for team_stats in teams %}
         <tr>
 
@@ -70,7 +74,7 @@
             <td>
                 {{team_stats.year}}
             </td>
-            <td class="{% if query == 'wins' %} team_highlight{% endif %}">
+            <td class="{% if query == 'wins' %} team_highlight{% endif %}"> <!-- highlights stat user selected to filter, team_highlight class construction above-->
                 {{team_stats.wins}}
             </td>
             <td class="{% if query == 'draws' %} team_highlight{% endif %}">

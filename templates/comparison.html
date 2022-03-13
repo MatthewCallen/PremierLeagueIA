@@ -1,19 +1,21 @@
+<!--HTML/CSS/JavaScript code to select two teams to compare their stats: User sees this page before 'comparison-display.html'-->
 {% extends "base.html" %}
 {% block content %}
 <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> <!--Imports Boostrap Framework-->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> <!--Imports jquery Framework-->
 </head>
     
-<div style = 'text-align: center;'>
+<div style = 'text-align: center;'> <!--Page header-->
     <p>
-        <strong style="text-align:center; font-size:30px; color:white">English Premier League Comparison Page</strong>
+        <strong style="text-align:center; font-size:30px; color:white">English Premier League Comparison Page</strong> 
     </p>
 
-<body style="background-color:rgb(253, 155, 75)">
+<body style="background-color:rgb(253, 155, 75)"> <!--Sets background-->
 
-<style>
+<!-- Sets style for both dropdown menus -->
+<style> 
     .form-select form-select-lg mb-3{
         padding-left: 35%;
     }
@@ -32,25 +34,23 @@
 </style>
 
 
-<script>
-    $('.select2').select2();
-</script>
-
 <form method="post" action='/comparison/'>
 {% csrf_token %}
 
+
+<!-- Code for both dropdown menus for user to select two teams to compare -->
 <div class="container">
     <div class="row">
       <div>
       <div class="col" style = "text-align: center;">
-            <select name="team_one_selection" class="form-select form-select-lg mb-3" aria-label="Default select example">
-                <option selected value="-1">Select Team One</option>
+            <select name="team_one_selection" class="form-select form-select-lg mb-3" aria-label="Default select example"> <!--Dropdown menu edits-->
+                <option selected value="-1">Select Team One</option> <!-- error checking -->
                 {% for team_stats in teams %}
-                <option value="{{team_stats.id}}">{{team_stats.team}}, {{team_stats.year}}</option>
+                <option value="{{team_stats.id}}">{{team_stats.team}}, {{team_stats.year}}</option> <!-- find selected team in database-->
                 {% endfor %}
             </select>
-              
       </div>
+      <!--same as above for second dropdown menu-->
       <div class="col" style=" text-align: center">
         <select name="team_two_selection" class="form-select form-select-lg" aria-label="Default select example">
             <option selected value="-1">Select Team Two</option>

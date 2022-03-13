@@ -1,9 +1,10 @@
+<!-- Page that determines what displays when user compares two teams: User sees this page after 'comparison.html' -->
 {% extends "base.html" %}
 {% block content %}
-
 <style>
+    /* Changes header's style (size & color) */
     p{
-        font-size: 20px
+        font-size: 20px; 
     }
 
     row{
@@ -12,11 +13,12 @@
 
 
 </style>
-<body style="background-color:rgb(253, 155, 75)"> 
+<body style="background-color:rgb(253, 155, 75)"> <!-- sets background color-->
     <div class="row" style="clear: both;">
-
-        <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_one.color}}; color:{% if team_one.color == '#FFFFFF' %} black {% else %} white {% endif %}">
-            <img src="{{team_one.logo.url}}" alt="{{team_one.team}}" style="width:30%; height:auto">
+        <!--Displays user selected teams stats to compare (team_one: first selected team ; team_two: second selected team-->
+      <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_one.color}}; color:{% if team_one.color == '#FFFFFF' %} black {% else %} white {% endif %}"> <!-- Changes color of text when displayed by using 'color' attribute-->
+            <img src="{{team_one.logo.url}}" alt="{{team_one.team}}" style="width:30%; height:auto"> <!-- Displays team logo-->
+            <!--Code below displays all attributes for a team's stats-->
             <h2>{{team_one.year}}</h2>
             <p>Wins: {{team_one.wins}}</p>
             <p>Draws: {{team_one.draws}}</p>
@@ -29,6 +31,8 @@
             <p>Clean Sheets: {{team_one.clean_sheets}}</p>
             <p>Table Finish: {{team_one.table_finish}}</p>
         </div>
+
+        <!--Repeats same as above with the second user selected team-->
         <div class="col" style="text-align: center; border-radius: 10px; margin: 1% 10% 0 10%; background-color: {{team_two.color}}; color:{% if team_two.color == '#FFFFFF' %} black {% else %} white {% endif %}">
             <img src="{{team_two.logo.url}}" alt="{{team_two.team}}" style="width:30%; height:auto">
             <h2>{{team_two.year}}</h2>
